@@ -3,7 +3,6 @@ plugins {
 
     id("com.github.johnrengelman.shadow") version "6.1.0"
 
-    application
     java
 }
 
@@ -19,7 +18,7 @@ tasks {
 
     shadowJar {
         manifest {
-            attributes["Main-Class"] = "net.hyren.discord.bot.DiscordBotApplication"
+            attributes["Main-Class"] = "net.hyren.github.application.GitHubApplication"
         }
 
         val fileName = "${project.name}.jar"

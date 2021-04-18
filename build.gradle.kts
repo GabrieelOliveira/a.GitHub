@@ -55,7 +55,7 @@ repositories {
 
 dependencies {
     // kotlin
-    implementation(kotlin("stdlib"))
+    compileOnly(kotlin("stdlib"))
 
     // gradle
     implementation("org.gradle:gradle-tooling-api:7.0-rc-2")

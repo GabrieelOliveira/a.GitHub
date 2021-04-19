@@ -1,6 +1,6 @@
 package net.hyren.github.application.misc.project
 
-import net.hyren.github.application.GitHubApplicationConstants
+import net.hyren.github.application.GitHubConstants
 import net.hyren.github.application.exceptions.ProjectNotFoundException
 import net.hyren.github.application.misc.build.Build
 import java.io.File
@@ -16,7 +16,7 @@ abstract class Project(
 	lateinit var currentBuilder: Build
 
 	val PROJECT_FOLDER = File(
-		"${GitHubApplicationConstants.Folders.PROJECTS_DIRECTORY}/$name"
+		"${GitHubConstants.Folders.PROJECTS_DIRECTORY}/$name"
 	)
 
 	lateinit var framework: File
@@ -30,7 +30,7 @@ abstract class Project(
 	fun isGradleProject(): Boolean {
 		if (!PROJECT_FOLDER.exists())
 			throw ProjectNotFoundException(
-				"Can't find project $name at: \"${GitHubApplicationConstants.Folders.PROJECTS_DIRECTORY}/$name\""
+				"Can't find project $name at: \"${GitHubConstants.Folders.PROJECTS_DIRECTORY}/$name\""
 			)
 
 		val gradlew = File(PROJECT_FOLDER, "gradlew")
@@ -52,7 +52,7 @@ abstract class Project(
 	fun isMavenProject(): Boolean {
 		if (!PROJECT_FOLDER.exists())
 			throw ProjectNotFoundException(
-				"Can't find project $name at: \"${GitHubApplicationConstants.Folders.PROJECTS_DIRECTORY}/$name\""
+				"Can't find project $name at: \"${GitHubConstants.Folders.PROJECTS_DIRECTORY}/$name\""
 			)
 
 		val pom = File(PROJECT_FOLDER, "pom.xml")

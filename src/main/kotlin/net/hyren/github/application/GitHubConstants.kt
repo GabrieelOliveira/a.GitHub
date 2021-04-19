@@ -3,7 +3,7 @@ package net.hyren.github.application
 /**
  * @author Gutyerrez
  */
-object GitHubApplicationConstants {
+object GitHubConstants {
 
 	object Folders {
 

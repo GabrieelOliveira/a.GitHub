@@ -6,7 +6,7 @@ import com.redefantasy.core.shared.applications.data.Application
 /**
  * @author Gutyerrez
  */
-object GitHubApplicationProvider {
+object GitHubProvider {
 
 	fun prepare(
 		application: Application

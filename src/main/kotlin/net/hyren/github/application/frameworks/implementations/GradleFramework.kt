@@ -1,7 +1,7 @@
 package net.hyren.github.application.frameworks.implementations
 
 import net.hyren.github.application.GitHubApplication
-import net.hyren.github.application.GitHubApplicationConstants
+import net.hyren.github.application.GitHubConstants
 import net.hyren.github.application.frameworks.Framework
 import net.hyren.github.application.misc.build.Build
 import net.hyren.github.application.misc.project.Project
@@ -27,17 +27,15 @@ class GradleFramework : Framework {
 
 			connector.forProjectDirectory(project.PROJECT_FOLDER)
 
-			if (System.getProperty("os") == "linux") {
-				Files.setPosixFilePermissions(
-					path,
-					PosixFilePermissions.fromString("rwxrwxrwx")
-				)
-			}
+			Files.setPosixFilePermissions(
+				path,
+				PosixFilePermissions.fromString("rwxrwxrwx")
+			)
 
 			val buildGradleKts = if (project.isKotlinDSL) File(
-				"${GitHubApplicationConstants.Folders.PROJECTS_DIRECTORY}/${project.name}/build.gradle.kts"
+				"${GitHubConstants.Folders.PROJECTS_DIRECTORY}/${project.name}/build.gradle.kts"
 			) else File(
-				"${GitHubApplicationConstants.Folders.PROJECTS_DIRECTORY}/${project.name}/build.gradle"
+				"${GitHubConstants.Folders.PROJECTS_DIRECTORY}/${project.name}/build.gradle"
 			)
 
 			val data = InputStreamReader(buildGradleKts.inputStream()).readText()

@@ -5,6 +5,7 @@ import com.redefantasy.core.shared.echo.packets.project.ProjectFailedBuildEchoPa
 import com.redefantasy.core.shared.echo.packets.project.ProjectSuccessBuildEchoPacket
 import net.hyren.github.application.frameworks.Framework
 import net.hyren.github.application.frameworks.implementations.GradleFramework
+import net.hyren.github.application.frameworks.implementations.MavenFramework
 import org.gradle.tooling.GradleConnectionException
 import org.gradle.tooling.GradleConnector
 import org.gradle.tooling.ResultHandler
@@ -35,6 +36,8 @@ class Build(
 				val startTime = System.currentTimeMillis()
 
 				init {
+					println("Build $id")
+
 					framework.onStart(id)
 				}
 
@@ -63,6 +66,8 @@ class Build(
 			})
 
 			projectConnection.close()
+		} else if (framework is MavenFramework) {
+			// make it later
 		}
 	}
 

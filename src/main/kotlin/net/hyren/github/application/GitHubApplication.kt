@@ -4,8 +4,6 @@ import com.redefantasy.core.shared.applications.ApplicationType
 import com.redefantasy.core.shared.applications.data.Application
 import net.hyren.github.application.frameworks.implementations.GradleFramework
 import net.hyren.github.application.misc.project.Project
-import java.math.BigDecimal
-import java.math.BigInteger
 import java.net.InetSocketAddress
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -18,7 +16,7 @@ object GitHubApplication {
 
 	@JvmStatic
 	fun main(args: Array<String>) {
-		GitHubApplicationProvider.prepare(
+		GitHubProvider.prepare(
 			Application(
 				"github-application",
 				"GitHub Application",
